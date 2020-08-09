@@ -580,6 +580,24 @@ cc_library(
 )
 
 cc_library(
+    name = "my_pass_through_calculator",
+    srcs = ["my_pass_through_calculator.cc"],
+    visibility = [
+        "//visibility:public",
+    ],
+    deps = [
+        "//mediapipe/framework:calculator_framework",
+        "//mediapipe/framework/port:status",
+        "//mediapipe/framework/formats:landmark_cc_proto",
+        "//mediapipe/framework/formats:rect_cc_proto",
+        "//mediapipe/framework/formats:detection_cc_proto",
+        "//mediapipe/framework/formats:wrapper_hand_tracking_cc_proto",
+    ],
+    alwayslink = 1,
+)
+
+
+cc_library(
     name = "round_robin_demux_calculator",
     srcs = ["round_robin_demux_calculator.cc"],
     visibility = [
