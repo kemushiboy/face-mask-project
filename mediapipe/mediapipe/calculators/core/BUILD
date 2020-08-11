@@ -596,6 +596,23 @@ cc_library(
     alwayslink = 1,
 )
 
+cc_library(
+    name = "my_iris_pass_through_calculator",
+    srcs = ["my_iris_pass_through_calculator.cc"],
+    visibility = [
+        "//visibility:public",
+    ],
+    deps = [
+        "//mediapipe/framework:calculator_framework",
+        "//mediapipe/framework/port:status",
+        "//mediapipe/framework/formats:landmark_cc_proto",
+        "//mediapipe/framework/formats:rect_cc_proto",
+        "//mediapipe/framework/formats:detection_cc_proto",
+        "//mediapipe/framework/formats:wrapper_iris_tracking_cc_proto",
+    ],
+    alwayslink = 1,
+)
+
 
 cc_library(
     name = "round_robin_demux_calculator",

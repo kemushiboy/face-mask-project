@@ -17,17 +17,14 @@ print('create socket')
 sock.bind(locaddr)
 
 
-def ListHandTracking(wrapperHandTracking):
+#def ListHandTracking(wrapperHandTracking):
 
     #NormalizedLandmarkList landmarks = 1;
     #optional NormalizedRect rect = 2;
     #optional DetectionList detection = 3;
 
     #for landmark in wrapperHandTracking.landmarks:
-    print ("Landmarks: ",wrapperHandTracking.landmarks)
-    print ("rect: ",wrapperHandTracking.rect)
-    print("detection: "wrapper_hand_tracking.detection)
-
+    #print ("Landmarks: ",wrapperHandTracking.landmarks)
 
 while True:
     try :
@@ -37,11 +34,11 @@ while True:
         #message = message.decode(encoding='utf-8')
 
         #*todo ここでmessageをprotobufのWrapperHandTracking形式でdecodeする
-        wrapper_hand_tracking = wrapper_hand_tracking_pb2.WrapperHandTracking()
-        wrapper_hand_tracking.ParseFromString(message)
-        ListHandTracking(wrapper_hand_tracking)
+        #wrapper_hand_tracking = wrapper_hand_tracking_pb2.WrapperHandTracking()
+        #wrapper_hand_tracking.ParseFromString(message)
+        #ListHandTracking(wrapper_hand_tracking)
 
-        #print(f'Received message is [{message}]')
+        print(f'Received message is [{message}]')
 
         # Clientが受信待ちになるまで待つため
         #time.sleep(1)

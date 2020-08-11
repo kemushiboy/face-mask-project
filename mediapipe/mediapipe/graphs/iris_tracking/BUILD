@@ -45,6 +45,8 @@ cc_library(
         "//mediapipe/graphs/iris_tracking/subgraphs:iris_renderer_cpu",
         "//mediapipe/modules/face_landmark:face_landmark_front_cpu",
         "//mediapipe/modules/iris_landmark:iris_landmark_left_and_right_cpu",
+	"//mediapipe/calculators/core:my_iris_pass_through_calculator"
+
     ],
 )
 

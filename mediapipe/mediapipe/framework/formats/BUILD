@@ -232,6 +232,17 @@ mediapipe_proto_library(
     ],
 )
 
+mediapipe_proto_library(
+    name = "wrapper_iris_tracking_proto",
+    srcs = ["wrapper_iris_tracking.proto"],
+    visibility = ["//visibility:public"],
+    deps = [
+      "//mediapipe/framework/formats:landmark_proto",
+      "//mediapipe/framework/formats:detection_proto",
+      "//mediapipe/framework/formats:rect_proto",
+    ],
+)
+
 # Expose the proto source files for building mediapipe AAR.
 filegroup(
     name = "protos_src",

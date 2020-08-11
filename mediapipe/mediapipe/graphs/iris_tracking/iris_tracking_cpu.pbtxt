@@ -105,14 +105,24 @@ node {
 node {
   calculator: "IrisRendererCpu"
   input_stream: "IMAGE:input_video"
-  input_stream: "FACE_LANDMARKS:face_landmarks"
+  input_stream: "FACE_LANDMARKS:face_landmarks_out"
   input_stream: "EYE_LANDMARKS_LEFT:left_eye_contour_landmarks"
   input_stream: "EYE_LANDMARKS_RIGHT:right_eye_contour_landmarks"
   input_stream: "IRIS_LANDMARKS_LEFT:left_iris_landmarks"
   input_stream: "IRIS_LANDMARKS_RIGHT:right_iris_landmarks"
-  input_stream: "NORM_RECT:face_rect"
+  input_stream: "NORM_RECT:face_rect_out"
   input_stream: "LEFT_EYE_RECT:left_eye_rect_from_landmarks"
   input_stream: "RIGHT_EYE_RECT:right_eye_rect_from_landmarks"
-  input_stream: "DETECTIONS:face_detections"
+  input_stream: "DETECTIONS:face_detections_out"
   output_stream: "IMAGE:output_video"
+}
+
+node {
+  calculator: "MyIrisPassThroughCalculator"
+  input_stream: "FACE_LANDMARKS:face_landmarks"
+  input_stream: "NORM_RECT:face_rect"
+  input_stream: "DETECTIONS:face_detections"
+  output_stream: "FACE_LANDMARKS:face_landmarks_out"
+  output_stream: "NORM_RECT:face_rect_out"
+  output_stream: "DETECTIONS:face_detections_out"
 }
