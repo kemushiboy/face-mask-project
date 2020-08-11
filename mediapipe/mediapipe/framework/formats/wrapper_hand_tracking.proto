@@ -22,9 +22,9 @@ syntax = "proto2";
 
 package mediapipe;
 
-//import "mediapipe/framework/formats/landmark.proto";
-//import "mediapipe/framework/formats/rect.proto";
-//import "mediapipe/framework/formats/detection.proto";
+import "mediapipe/framework/formats/landmark.proto";
+import "mediapipe/framework/formats/rect.proto";
+import "mediapipe/framework/formats/detection.proto";
 
  //!------------------------------------------------------!
  //Uncomment below to build using protoc from command line

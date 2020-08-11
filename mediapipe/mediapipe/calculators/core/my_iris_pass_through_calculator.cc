@@ -167,9 +167,9 @@ class MyIrisPassThroughCalculator : public CalculatorBase {
 
               wrapper->mutable_landmarks()->add_landmark();
               int size = wrapper->mutable_landmarks()->landmark_size()-1;
-              wrapper->mutable_landmarks()->mutable_landmark(size)->set_x(landmark.x());
-              wrapper->mutable_landmarks()->mutable_landmark(size)->set_y(landmark.y());
-              wrapper->mutable_landmarks()->mutable_landmark(size)->set_z(landmark.z());
+  //            wrapper->mutable_landmarks()->mutable_landmark(size)->set_x(landmark.x());
+  //            wrapper->mutable_landmarks()->mutable_landmark(size)->set_y(landmark.y());
+  //            wrapper->mutable_landmarks()->mutable_landmark(size)->set_z(landmark.z());
           }
         }
 
