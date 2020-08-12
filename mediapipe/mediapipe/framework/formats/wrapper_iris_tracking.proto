@@ -223,4 +223,5 @@ message WrapperIrisTracking {
     optional NormalizedLandmarkList landmarks = 1;
     optional NormalizedRect rect = 2;
     optional DetectionList detection = 3;
+    optional NormalizedRect right_eye_rect = 4;
 }

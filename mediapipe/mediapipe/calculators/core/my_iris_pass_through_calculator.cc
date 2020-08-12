@@ -43,7 +43,6 @@ constexpr char kNormLandmarksTag[] = "NORM_LANDMARKS"; // MAD note @to-fix: stre
 constexpr char kNormRectTag[] = "NORM_RECT";
 constexpr char kDetectionsTag[] = "DETECTIONS";
 
-
 void setup_udp(){
   // int sockfd;
   char buffer[MAXLINE];
@@ -196,12 +195,29 @@ class MyIrisPassThroughCalculator : public CalculatorBase {
 
 
           // std::cout << "Hand Rect: " << rect.DebugString() << '\n';
-          std::string msg_buffer;
-          rect.SerializeToString(&msg_buffer);
-          sendto(sockfd, msg_buffer.c_str(), msg_buffer.length(),
-              0, (const struct sockaddr *) &servaddr,
-                  sizeof(servaddr));
+          // std::string msg_buffer;
+          // rect.SerializeToString(&msg_buffer);
+          // sendto(sockfd, msg_buffer.c_str(), msg_buffer.length(),
+          //     0, (const struct sockaddr *) &servaddr,
+          //         sizeof(servaddr));
 
+        }
+
+        if (cc->Inputs().Get(id).Name() == "right_eye_rect_from_landmarks"){
+          const NormalizedRect& right_eye_rect = cc->Inputs().Tag("RIGHT_EYE_RECT").Get<NormalizedRect>();
+          wrapper->mutable_rect()->set_x_center(right_eye_rect.x_center());
+          wrapper->mutable_rect()->set_y_center(right_eye_rect.y_center());
+          wrapper->mutable_rect()->set_width(right_eye_rect.width());
+          wrapper->mutable_rect()->set_height(right_eye_rect.height());
+          wrapper->mutable_rect()->set_rotation(right_eye_rect.rotation());
+
+          //std::cout << right_eye_rect.DebugString() << std::endl;
+
+          // std::string msg_buffer;
+          // right_eye_rect.SerializeToString(&msg_buffer);
+          // sendto(sockfd, msg_buffer.c_str(), msg_buffer.length(),
+          //     0, (const struct sockaddr *) &servaddr,
+          //         sizeof(servaddr));
         }
 
         // std::cout << "  Passing " << cc->Inputs().Get(id).Name() << " to "

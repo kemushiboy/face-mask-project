@@ -28,6 +28,7 @@ def ListIrisTracking(wrapperIrisTracking):
     #print ("Landmarks: ",wrapperIrisTracking.landmarks)
     print("rect: ",wrapper_iris_tracking.rect)
     print("detection: ",wrapper_iris_tracking.detection)
+    print("right_eye_rect:",wrapper_iris_tracking.right_eye_rect )
 
 while True:
     try :
