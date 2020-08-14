@@ -265,7 +265,7 @@ class MyIrisPassThroughCalculator : public CalculatorBase {
 
           for (int i = 0; i < landmarks.landmark_size(); ++i) {
               const NormalizedLandmark& landmark = landmarks.landmark(i);
-               //std::cout << "iris_landmarks_left " << i <<":\n" << landmark.DebugString() << '\n';
+              // std::cout << "iris_landmarks_left " << i <<":\n" << landmark.DebugString() << '\n';
 
               wrapper->mutable_iris_landmarks_left()->add_landmark();
               int size = wrapper->mutable_iris_landmarks_left()->landmark_size()-1;
@@ -283,15 +283,13 @@ class MyIrisPassThroughCalculator : public CalculatorBase {
 
           for (int i = 0; i < landmarks.landmark_size(); ++i) {
               const NormalizedLandmark& landmark = landmarks.landmark(i);
-               //std::cout << "eye_landmarks_right " << i <<":\n" << landmark.DebugString() << '\n';
+               std::cout << "eye_landmarks_right " << i <<":\n" << landmark.DebugString() << '\n';
 
               wrapper->mutable_eye_landmarks_right()->add_landmark();
               int size = wrapper->mutable_eye_landmarks_right()->landmark_size()-1;
               
               wrapper->mutable_eye_landmarks_right()->mutable_landmark(size)->set_x(landmark.x());
               wrapper->mutable_eye_landmarks_right()->mutable_landmark(size)->set_y(landmark.y());
-              wrapper->mutable_eye_landmarks_right()->mutable_landmark(size)->set_z(landmark.z());
-              wrapper->mutable_eye_landmarks_right()->mutable_landmark(size)->set_visibility(landmark.visibility());
               
           }
         }
@@ -310,8 +308,6 @@ class MyIrisPassThroughCalculator : public CalculatorBase {
               
               wrapper->mutable_eye_landmarks_left()->mutable_landmark(size)->set_x(landmark.x());
               wrapper->mutable_eye_landmarks_left()->mutable_landmark(size)->set_y(landmark.y());
-              wrapper->mutable_eye_landmarks_left()->mutable_landmark(size)->set_z(landmark.z());
-              wrapper->mutable_eye_landmarks_left()->mutable_landmark(size)->set_visibility(landmark.visibility());
               
           }
         }

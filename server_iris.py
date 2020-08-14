@@ -26,9 +26,15 @@ def ListIrisTracking(wrapperIrisTracking):
     #optional DetectionList detection = 3;
 
     #print ("Landmarks: ",wrapperIrisTracking.landmarks)
-    print("rect: ",wrapper_iris_tracking.rect)
-    print("detection: ",wrapper_iris_tracking.detection)
-    print("right_eye_rect:",wrapper_iris_tracking.right_eye_rect )
+    #print("rect: ",wrapper_iris_tracking.rect)
+    #print("detection: ",wrapper_iris_tracking.detection)
+    #print("right_eye_rect:",wrapper_iris_tracking.right_eye_rect )
+    #print("left_eye_rect:",wrapper_iris_tracking.left_eye_rect )
+    #print("iris_landmarks_right:",wrapper_iris_tracking.iris_landmarks_right )
+    #print("iris_landmarks_left:",wrapper_iris_tracking.iris_landmarks_left )
+    print("eye_landmarks_right:",wrapper_iris_tracking.eye_landmarks_right )
+    print("eye_landmarks_left:",wrapper_iris_tracking.eye_landmarks_left )
+
 
 while True:
     try :
