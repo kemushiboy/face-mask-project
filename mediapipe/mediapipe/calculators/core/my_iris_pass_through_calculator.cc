@@ -283,7 +283,7 @@ class MyIrisPassThroughCalculator : public CalculatorBase {
 
           for (int i = 0; i < landmarks.landmark_size(); ++i) {
               const NormalizedLandmark& landmark = landmarks.landmark(i);
-               std::cout << "eye_landmarks_right " << i <<":\n" << landmark.DebugString() << '\n';
+               //std::cout << "eye_landmarks_right " << i <<":\n" << landmark.DebugString() << '\n';
 
               wrapper->mutable_eye_landmarks_right()->add_landmark();
               int size = wrapper->mutable_eye_landmarks_right()->landmark_size()-1;
