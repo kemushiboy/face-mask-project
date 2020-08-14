@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto2',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x1bwrapper_iris_tracking.proto\x12\tmediapipe\"+\n\x08Landmark\x12\t\n\x01x\x18\x01 \x01(\x02\x12\t\n\x01y\x18\x02 \x01(\x02\x12\t\n\x01z\x18\x03 \x01(\x02\"5\n\x0cLandmarkList\x12%\n\x08landmark\x18\x01 \x03(\x0b\x32\x13.mediapipe.Landmark\"5\n\x12NormalizedLandmark\x12\t\n\x01x\x18\x01 \x01(\x02\x12\t\n\x01y\x18\x02 \x01(\x02\x12\t\n\x01z\x18\x03 \x01(\x02\"I\n\x16NormalizedLandmarkList\x12/\n\x08landmark\x18\x01 \x03(\x0b\x32\x1d.mediapipe.NormalizedLandmark\"o\n\x04Rect\x12\x10\n\x08x_center\x18\x01 \x02(\x05\x12\x10\n\x08y_center\x18\x02 \x02(\x05\x12\x0e\n\x06height\x18\x03 \x02(\x05\x12\r\n\x05width\x18\x04 \x02(\x05\x12\x13\n\x08rotation\x18\x05 \x01(\x02:\x01\x30\x12\x0f\n\x07rect_id\x18\x06 \x01(\x03\"y\n\x0eNormalizedRect\x12\x10\n\x08x_center\x18\x01 \x02(\x02\x12\x10\n\x08y_center\x18\x02 \x02(\x02\x12\x0e\n\x06height\x18\x03 \x02(\x02\x12\r\n\x05width\x18\x04 \x02(\x02\x12\x13\n\x08rotation\x18\x05 \x01(\x02:\x01\x30\x12\x0f\n\x07rect_id\x18\x06 \x01(\x03\"|\n\rRasterization\x12\x33\n\x08interval\x18\x01 \x03(\x0b\x32!.mediapipe.Rasterization.Interval\x1a\x36\n\x08Interval\x12\t\n\x01y\x18\x01 \x02(\x05\x12\x0e\n\x06left_x\x18\x02 \x02(\x05\x12\x0f\n\x07right_x\x18\x03 \x02(\x05\"\xd5\x05\n\x0cLocationData\x12.\n\x06\x66ormat\x18\x01 \x01(\x0e\x32\x1e.mediapipe.LocationData.Format\x12\x39\n\x0c\x62ounding_box\x18\x02 \x01(\x0b\x32#.mediapipe.LocationData.BoundingBox\x12J\n\x15relative_bounding_box\x18\x03 \x01(\x0b\x32+.mediapipe.LocationData.RelativeBoundingBox\x12\x30\n\x04mask\x18\x04 \x01(\x0b\x32\".mediapipe.LocationData.BinaryMask\x12\x44\n\x12relative_keypoints\x18\x05 \x03(\x0b\x32(.mediapipe.LocationData.RelativeKeypoint\x1aH\n\x0b\x42oundingBox\x12\x0c\n\x04xmin\x18\x01 \x01(\x05\x12\x0c\n\x04ymin\x18\x02 \x01(\x05\x12\r\n\x05width\x18\x03 \x01(\x05\x12\x0e\n\x06height\x18\x04 \x01(\x05\x1aP\n\x13RelativeBoundingBox\x12\x0c\n\x04xmin\x18\x01 \x01(\x02\x12\x0c\n\x04ymin\x18\x02 \x01(\x02\x12\r\n\x05width\x18\x03 \x01(\x02\x12\x0e\n\x06height\x18\x04 \x01(\x02\x1a\\\n\nBinaryMask\x12\r\n\x05width\x18\x01 \x01(\x05\x12\x0e\n\x06height\x18\x02 \x01(\x05\x12/\n\rrasterization\x18\x03 \x01(\x0b\x32\x18.mediapipe.Rasterization\x1aO\n\x10RelativeKeypoint\x12\t\n\x01x\x18\x01 \x01(\x02\x12\t\n\x01y\x18\x02 \x01(\x02\x12\x16\n\x0ekeypoint_label\x18\x03 \x01(\t\x12\r\n\x05score\x18\x04 \x01(\x02\"K\n\x06\x46ormat\x12\n\n\x06GLOBAL\x10\x00\x12\x10\n\x0c\x42OUNDING_BOX\x10\x01\x12\x19\n\x15RELATIVE_BOUNDING_BOX\x10\x02\x12\x08\n\x04MASK\x10\x03\"\xde\x02\n\tDetection\x12\r\n\x05label\x18\x01 \x03(\t\x12\x14\n\x08label_id\x18\x02 \x03(\x05\x42\x02\x10\x01\x12\x11\n\x05score\x18\x03 \x03(\x02\x42\x02\x10\x01\x12.\n\rlocation_data\x18\x04 \x01(\x0b\x32\x17.mediapipe.LocationData\x12\x13\n\x0b\x66\x65\x61ture_tag\x18\x05 \x01(\t\x12\x10\n\x08track_id\x18\x06 \x01(\t\x12\x14\n\x0c\x64\x65tection_id\x18\x07 \x01(\x03\x12G\n\x15\x61ssociated_detections\x18\x08 \x03(\x0b\x32(.mediapipe.Detection.AssociatedDetection\x12\x14\n\x0c\x64isplay_name\x18\t \x03(\t\x12\x16\n\x0etimestamp_usec\x18\n \x01(\x03\x1a\x35\n\x13\x41ssociatedDetection\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x12\n\nconfidence\x18\x02 \x01(\x02\"8\n\rDetectionList\x12\'\n\tdetection\x18\x01 \x03(\x0b\x32\x14.mediapipe.Detection\"\xd4\x01\n\x13WrapperIrisTracking\x12\x34\n\tlandmarks\x18\x01 \x01(\x0b\x32!.mediapipe.NormalizedLandmarkList\x12\'\n\x04rect\x18\x02 \x01(\x0b\x32\x19.mediapipe.NormalizedRect\x12+\n\tdetection\x18\x03 \x01(\x0b\x32\x18.mediapipe.DetectionList\x12\x31\n\x0eright_eye_rect\x18\x04 \x01(\x0b\x32\x19.mediapipe.NormalizedRect'
+  serialized_pb=b'\n\x1bwrapper_iris_tracking.proto\x12\tmediapipe\"+\n\x08Landmark\x12\t\n\x01x\x18\x01 \x01(\x02\x12\t\n\x01y\x18\x02 \x01(\x02\x12\t\n\x01z\x18\x03 \x01(\x02\"5\n\x0cLandmarkList\x12%\n\x08landmark\x18\x01 \x03(\x0b\x32\x13.mediapipe.Landmark\"5\n\x12NormalizedLandmark\x12\t\n\x01x\x18\x01 \x01(\x02\x12\t\n\x01y\x18\x02 \x01(\x02\x12\t\n\x01z\x18\x03 \x01(\x02\"I\n\x16NormalizedLandmarkList\x12/\n\x08landmark\x18\x01 \x03(\x0b\x32\x1d.mediapipe.NormalizedLandmark\"o\n\x04Rect\x12\x10\n\x08x_center\x18\x01 \x02(\x05\x12\x10\n\x08y_center\x18\x02 \x02(\x05\x12\x0e\n\x06height\x18\x03 \x02(\x05\x12\r\n\x05width\x18\x04 \x02(\x05\x12\x13\n\x08rotation\x18\x05 \x01(\x02:\x01\x30\x12\x0f\n\x07rect_id\x18\x06 \x01(\x03\"y\n\x0eNormalizedRect\x12\x10\n\x08x_center\x18\x01 \x02(\x02\x12\x10\n\x08y_center\x18\x02 \x02(\x02\x12\x0e\n\x06height\x18\x03 \x02(\x02\x12\r\n\x05width\x18\x04 \x02(\x02\x12\x13\n\x08rotation\x18\x05 \x01(\x02:\x01\x30\x12\x0f\n\x07rect_id\x18\x06 \x01(\x03\"|\n\rRasterization\x12\x33\n\x08interval\x18\x01 \x03(\x0b\x32!.mediapipe.Rasterization.Interval\x1a\x36\n\x08Interval\x12\t\n\x01y\x18\x01 \x02(\x05\x12\x0e\n\x06left_x\x18\x02 \x02(\x05\x12\x0f\n\x07right_x\x18\x03 \x02(\x05\"\xd5\x05\n\x0cLocationData\x12.\n\x06\x66ormat\x18\x01 \x01(\x0e\x32\x1e.mediapipe.LocationData.Format\x12\x39\n\x0c\x62ounding_box\x18\x02 \x01(\x0b\x32#.mediapipe.LocationData.BoundingBox\x12J\n\x15relative_bounding_box\x18\x03 \x01(\x0b\x32+.mediapipe.LocationData.RelativeBoundingBox\x12\x30\n\x04mask\x18\x04 \x01(\x0b\x32\".mediapipe.LocationData.BinaryMask\x12\x44\n\x12relative_keypoints\x18\x05 \x03(\x0b\x32(.mediapipe.LocationData.RelativeKeypoint\x1aH\n\x0b\x42oundingBox\x12\x0c\n\x04xmin\x18\x01 \x01(\x05\x12\x0c\n\x04ymin\x18\x02 \x01(\x05\x12\r\n\x05width\x18\x03 \x01(\x05\x12\x0e\n\x06height\x18\x04 \x01(\x05\x1aP\n\x13RelativeBoundingBox\x12\x0c\n\x04xmin\x18\x01 \x01(\x02\x12\x0c\n\x04ymin\x18\x02 \x01(\x02\x12\r\n\x05width\x18\x03 \x01(\x02\x12\x0e\n\x06height\x18\x04 \x01(\x02\x1a\\\n\nBinaryMask\x12\r\n\x05width\x18\x01 \x01(\x05\x12\x0e\n\x06height\x18\x02 \x01(\x05\x12/\n\rrasterization\x18\x03 \x01(\x0b\x32\x18.mediapipe.Rasterization\x1aO\n\x10RelativeKeypoint\x12\t\n\x01x\x18\x01 \x01(\x02\x12\t\n\x01y\x18\x02 \x01(\x02\x12\x16\n\x0ekeypoint_label\x18\x03 \x01(\t\x12\r\n\x05score\x18\x04 \x01(\x02\"K\n\x06\x46ormat\x12\n\n\x06GLOBAL\x10\x00\x12\x10\n\x0c\x42OUNDING_BOX\x10\x01\x12\x19\n\x15RELATIVE_BOUNDING_BOX\x10\x02\x12\x08\n\x04MASK\x10\x03\"\xde\x02\n\tDetection\x12\r\n\x05label\x18\x01 \x03(\t\x12\x14\n\x08label_id\x18\x02 \x03(\x05\x42\x02\x10\x01\x12\x11\n\x05score\x18\x03 \x03(\x02\x42\x02\x10\x01\x12.\n\rlocation_data\x18\x04 \x01(\x0b\x32\x17.mediapipe.LocationData\x12\x13\n\x0b\x66\x65\x61ture_tag\x18\x05 \x01(\t\x12\x10\n\x08track_id\x18\x06 \x01(\t\x12\x14\n\x0c\x64\x65tection_id\x18\x07 \x01(\x03\x12G\n\x15\x61ssociated_detections\x18\x08 \x03(\x0b\x32(.mediapipe.Detection.AssociatedDetection\x12\x14\n\x0c\x64isplay_name\x18\t \x03(\t\x12\x16\n\x0etimestamp_usec\x18\n \x01(\x03\x1a\x35\n\x13\x41ssociatedDetection\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x12\n\nconfidence\x18\x02 \x01(\x02\"8\n\rDetectionList\x12\'\n\tdetection\x18\x01 \x03(\x0b\x32\x14.mediapipe.Detection\"\x86\x04\n\x13WrapperIrisTracking\x12\x34\n\tlandmarks\x18\x01 \x01(\x0b\x32!.mediapipe.NormalizedLandmarkList\x12\'\n\x04rect\x18\x02 \x01(\x0b\x32\x19.mediapipe.NormalizedRect\x12+\n\tdetection\x18\x03 \x01(\x0b\x32\x18.mediapipe.DetectionList\x12\x31\n\x0eright_eye_rect\x18\x04 \x01(\x0b\x32\x19.mediapipe.NormalizedRect\x12\x30\n\rleft_eye_rect\x18\x05 \x01(\x0b\x32\x19.mediapipe.NormalizedRect\x12?\n\x14iris_landmarks_right\x18\x06 \x01(\x0b\x32!.mediapipe.NormalizedLandmarkList\x12>\n\x13iris_landmarks_left\x18\x07 \x01(\x0b\x32!.mediapipe.NormalizedLandmarkList\x12>\n\x13\x65ye_landmarks_right\x18\x08 \x01(\x0b\x32!.mediapipe.NormalizedLandmarkList\x12=\n\x12\x65ye_landmarks_left\x18\t \x01(\x0b\x32!.mediapipe.NormalizedLandmarkList'
 )
 
 
@@ -890,6 +890,41 @@ _WRAPPERIRISTRACKING = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='left_eye_rect', full_name='mediapipe.WrapperIrisTracking.left_eye_rect', index=4,
+      number=5, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='iris_landmarks_right', full_name='mediapipe.WrapperIrisTracking.iris_landmarks_right', index=5,
+      number=6, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='iris_landmarks_left', full_name='mediapipe.WrapperIrisTracking.iris_landmarks_left', index=6,
+      number=7, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='eye_landmarks_right', full_name='mediapipe.WrapperIrisTracking.eye_landmarks_right', index=7,
+      number=8, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='eye_landmarks_left', full_name='mediapipe.WrapperIrisTracking.eye_landmarks_left', index=8,
+      number=9, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -903,7 +938,7 @@ _WRAPPERIRISTRACKING = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=1774,
-  serialized_end=1986,
+  serialized_end=2292,
 )
 
 _LANDMARKLIST.fields_by_name['landmark'].message_type = _LANDMARK
@@ -929,6 +964,11 @@ _WRAPPERIRISTRACKING.fields_by_name['landmarks'].message_type = _NORMALIZEDLANDM
 _WRAPPERIRISTRACKING.fields_by_name['rect'].message_type = _NORMALIZEDRECT
 _WRAPPERIRISTRACKING.fields_by_name['detection'].message_type = _DETECTIONLIST
 _WRAPPERIRISTRACKING.fields_by_name['right_eye_rect'].message_type = _NORMALIZEDRECT
+_WRAPPERIRISTRACKING.fields_by_name['left_eye_rect'].message_type = _NORMALIZEDRECT
+_WRAPPERIRISTRACKING.fields_by_name['iris_landmarks_right'].message_type = _NORMALIZEDLANDMARKLIST
+_WRAPPERIRISTRACKING.fields_by_name['iris_landmarks_left'].message_type = _NORMALIZEDLANDMARKLIST
+_WRAPPERIRISTRACKING.fields_by_name['eye_landmarks_right'].message_type = _NORMALIZEDLANDMARKLIST
+_WRAPPERIRISTRACKING.fields_by_name['eye_landmarks_left'].message_type = _NORMALIZEDLANDMARKLIST
 DESCRIPTOR.message_types_by_name['Landmark'] = _LANDMARK
 DESCRIPTOR.message_types_by_name['LandmarkList'] = _LANDMARKLIST
 DESCRIPTOR.message_types_by_name['NormalizedLandmark'] = _NORMALIZEDLANDMARK
