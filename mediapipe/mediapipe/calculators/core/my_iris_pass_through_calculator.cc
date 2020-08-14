@@ -214,13 +214,106 @@ class MyIrisPassThroughCalculator : public CalculatorBase {
           wrapper->mutable_right_eye_rect()->set_height(right_eye_rect.height());
           wrapper->mutable_right_eye_rect()->set_rotation(right_eye_rect.rotation());
 
-          std::cout << right_eye_rect.DebugString() << std::endl;
+          //std::cout << right_eye_rect.DebugString() << std::endl;
 
           // std::string msg_buffer;
           // right_eye_rect.SerializeToString(&msg_buffer);
           // sendto(sockfd, msg_buffer.c_str(), msg_buffer.length(),
           //     0, (const struct sockaddr *) &servaddr,
           //         sizeof(servaddr));
+        }
+
+        if (cc->Inputs().Get(id).Name() == "left_eye_rect_from_landmarks"){
+          const NormalizedRect& left_eye_rect = cc->Inputs().Tag("LEFT_EYE_RECT").Get<NormalizedRect>();
+          wrapper->mutable_left_eye_rect()->set_x_center(left_eye_rect.x_center());
+          wrapper->mutable_left_eye_rect()->set_y_center(left_eye_rect.y_center());
+          wrapper->mutable_left_eye_rect()->set_width(left_eye_rect.width());
+          wrapper->mutable_left_eye_rect()->set_height(left_eye_rect.height());
+          wrapper->mutable_left_eye_rect()->set_rotation(left_eye_rect.rotation());
+
+          //std::cout << left_eye_rect.DebugString() << std::endl;
+
+          // std::string msg_buffer;
+          // right_eye_rect.SerializeToString(&msg_buffer);
+          // sendto(sockfd, msg_buffer.c_str(), msg_buffer.length(),
+          //     0, (const struct sockaddr *) &servaddr,
+          //         sizeof(servaddr));
+        }
+
+        if (cc->Inputs().Get(id).Name() == "right_iris_landmarks"){
+          // the type is a NormalizedLandmarkList, but you need the kLandmarksTag
+          // in order for it not to crash for some reason ...
+          const NormalizedLandmarkList& landmarks = cc->Inputs().Tag("IRIS_LANDMARKS_RIGHT").Get<NormalizedLandmarkList>();
+
+          for (int i = 0; i < landmarks.landmark_size(); ++i) {
+              const NormalizedLandmark& landmark = landmarks.landmark(i);
+               //std::cout << "iris_landmarks_right " << i <<":\n" << landmark.DebugString() << '\n';
+
+              wrapper->mutable_iris_landmarks_right()->add_landmark();
+              int size = wrapper->mutable_iris_landmarks_right()->landmark_size()-1;
+              wrapper->mutable_iris_landmarks_right()->mutable_landmark(size)->set_x(landmark.x());
+              wrapper->mutable_iris_landmarks_right()->mutable_landmark(size)->set_y(landmark.y());
+              wrapper->mutable_iris_landmarks_right()->mutable_landmark(size)->set_z(landmark.z());
+              wrapper->mutable_iris_landmarks_right()->mutable_landmark(size)->set_visibility(landmark.visibility());
+          }
+        }
+
+        if (cc->Inputs().Get(id).Name() == "left_iris_landmarks"){
+          // the type is a NormalizedLandmarkList, but you need the kLandmarksTag
+          // in order for it not to crash for some reason ...
+          const NormalizedLandmarkList& landmarks = cc->Inputs().Tag("IRIS_LANDMARKS_LEFT").Get<NormalizedLandmarkList>();
+
+          for (int i = 0; i < landmarks.landmark_size(); ++i) {
+              const NormalizedLandmark& landmark = landmarks.landmark(i);
+               //std::cout << "iris_landmarks_left " << i <<":\n" << landmark.DebugString() << '\n';
+
+              wrapper->mutable_iris_landmarks_left()->add_landmark();
+              int size = wrapper->mutable_iris_landmarks_left()->landmark_size()-1;
+              wrapper->mutable_iris_landmarks_left()->mutable_landmark(size)->set_x(landmark.x());
+              wrapper->mutable_iris_landmarks_left()->mutable_landmark(size)->set_y(landmark.y());
+              wrapper->mutable_iris_landmarks_left()->mutable_landmark(size)->set_z(landmark.z());
+              wrapper->mutable_iris_landmarks_left()->mutable_landmark(size)->set_visibility(landmark.visibility());
+          }
+        }
+
+        if (cc->Inputs().Get(id).Name() == "right_eye_contour_landmarks"){
+          // the type is a NormalizedLandmarkList, but you need the kLandmarksTag
+          // in order for it not to crash for some reason ...
+          const NormalizedLandmarkList& landmarks = cc->Inputs().Tag("EYE_LANDMARKS_RIGHT").Get<NormalizedLandmarkList>();
+
+          for (int i = 0; i < landmarks.landmark_size(); ++i) {
+              const NormalizedLandmark& landmark = landmarks.landmark(i);
+               //std::cout << "eye_landmarks_right " << i <<":\n" << landmark.DebugString() << '\n';
+
+              wrapper->mutable_eye_landmarks_right()->add_landmark();
+              int size = wrapper->mutable_eye_landmarks_right()->landmark_size()-1;
+              
+              wrapper->mutable_eye_landmarks_right()->mutable_landmark(size)->set_x(landmark.x());
+              wrapper->mutable_eye_landmarks_right()->mutable_landmark(size)->set_y(landmark.y());
+              wrapper->mutable_eye_landmarks_right()->mutable_landmark(size)->set_z(landmark.z());
+              wrapper->mutable_eye_landmarks_right()->mutable_landmark(size)->set_visibility(landmark.visibility());
+              
+          }
+        }
+
+        if (cc->Inputs().Get(id).Name() == "left_eye_contour_landmarks"){
+          // the type is a NormalizedLandmarkList, but you need the kLandmarksTag
+          // in order for it not to crash for some reason ...
+          const NormalizedLandmarkList& landmarks = cc->Inputs().Tag("EYE_LANDMARKS_LEFT").Get<NormalizedLandmarkList>();
+
+          for (int i = 0; i < landmarks.landmark_size(); ++i) {
+              const NormalizedLandmark& landmark = landmarks.landmark(i);
+               //std::cout << "eye_landmarks_left " << i <<":\n" << landmark.DebugString() << '\n';
+
+              wrapper->mutable_eye_landmarks_left()->add_landmark();
+              int size = wrapper->mutable_eye_landmarks_left()->landmark_size()-1;
+              
+              wrapper->mutable_eye_landmarks_left()->mutable_landmark(size)->set_x(landmark.x());
+              wrapper->mutable_eye_landmarks_left()->mutable_landmark(size)->set_y(landmark.y());
+              wrapper->mutable_eye_landmarks_left()->mutable_landmark(size)->set_z(landmark.z());
+              wrapper->mutable_eye_landmarks_left()->mutable_landmark(size)->set_visibility(landmark.visibility());
+              
+          }
         }
 
         // std::cout << "  Passing " << cc->Inputs().Get(id).Name() << " to "

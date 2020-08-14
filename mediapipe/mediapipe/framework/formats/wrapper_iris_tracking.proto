@@ -224,4 +224,11 @@ message WrapperIrisTracking {
     optional NormalizedRect rect = 2;
     optional DetectionList detection = 3;
     optional NormalizedRect right_eye_rect = 4;
+    optional NormalizedRect left_eye_rect = 5;
+    optional NormalizedLandmarkList iris_landmarks_right = 6;
+    optional NormalizedLandmarkList iris_landmarks_left = 7;
+    optional NormalizedLandmarkList eye_landmarks_right = 8;
+    optional NormalizedLandmarkList eye_landmarks_left = 9;
+
+
 }
