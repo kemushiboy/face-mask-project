@@ -154,6 +154,8 @@ class MyIrisPassThroughCalculator : public CalculatorBase {
         WrapperIrisTracking* wrapper = new WrapperIrisTracking();
         wrapper->InitAsDefaultInstance();
 
+        //std::cout << cc->Inputs().Get(id).Name() << std::endl;
+
         if (cc->Inputs().Get(id).Name() == "face_landmarks"){
           // the type is a NormalizedLandmarkList, but you need the kLandmarksTag
           // in order for it not to crash for some reason ...
@@ -162,13 +164,14 @@ class MyIrisPassThroughCalculator : public CalculatorBase {
 
           for (int i = 0; i < landmarks.landmark_size(); ++i) {
               const NormalizedLandmark& landmark = landmarks.landmark(i);
-              // std::cout << "Landmark " << i <<":\n" << landmark.DebugString() << '\n';
+               //std::cout << "Landmark " << i <<":\n" << landmark.DebugString() << '\n';
 
               wrapper->mutable_landmarks()->add_landmark();
               int size = wrapper->mutable_landmarks()->landmark_size()-1;
-  //            wrapper->mutable_landmarks()->mutable_landmark(size)->set_x(landmark.x());
-  //            wrapper->mutable_landmarks()->mutable_landmark(size)->set_y(landmark.y());
-  //            wrapper->mutable_landmarks()->mutable_landmark(size)->set_z(landmark.z());
+              wrapper->mutable_landmarks()->mutable_landmark(size)->set_x(landmark.x());
+              wrapper->mutable_landmarks()->mutable_landmark(size)->set_y(landmark.y());
+              wrapper->mutable_landmarks()->mutable_landmark(size)->set_z(landmark.z());
+              wrapper->mutable_landmarks()->mutable_landmark(size)->set_visibility(landmark.visibility());
           }
         }
 
@@ -177,8 +180,8 @@ class MyIrisPassThroughCalculator : public CalculatorBase {
           const auto& detections = cc->Inputs().Tag(kDetectionsTag).Get<std::vector<Detection>>();
           for (int i = 0; i < detections.size(); ++i) {
               const Detection& detection = detections[i];
-              // std::cout << "\n----- Detection -----\n " << detection.DebugString() << '\n';
-              // wrapper->mutable_detection()->add_detection();
+               //std::cout << "\n----- Detection -----\n " << detection.DebugString() << '\n';
+               wrapper->mutable_detection()->add_detection();
 
           }
         }
@@ -205,13 +208,13 @@ class MyIrisPassThroughCalculator : public CalculatorBase {
 
         if (cc->Inputs().Get(id).Name() == "right_eye_rect_from_landmarks"){
           const NormalizedRect& right_eye_rect = cc->Inputs().Tag("RIGHT_EYE_RECT").Get<NormalizedRect>();
-          wrapper->mutable_rect()->set_x_center(right_eye_rect.x_center());
-          wrapper->mutable_rect()->set_y_center(right_eye_rect.y_center());
-          wrapper->mutable_rect()->set_width(right_eye_rect.width());
-          wrapper->mutable_rect()->set_height(right_eye_rect.height());
-          wrapper->mutable_rect()->set_rotation(right_eye_rect.rotation());
+          wrapper->mutable_right_eye_rect()->set_x_center(right_eye_rect.x_center());
+          wrapper->mutable_right_eye_rect()->set_y_center(right_eye_rect.y_center());
+          wrapper->mutable_right_eye_rect()->set_width(right_eye_rect.width());
+          wrapper->mutable_right_eye_rect()->set_height(right_eye_rect.height());
+          wrapper->mutable_right_eye_rect()->set_rotation(right_eye_rect.rotation());
 
-          //std::cout << right_eye_rect.DebugString() << std::endl;
+          std::cout << right_eye_rect.DebugString() << std::endl;
 
           // std::string msg_buffer;
           // right_eye_rect.SerializeToString(&msg_buffer);
