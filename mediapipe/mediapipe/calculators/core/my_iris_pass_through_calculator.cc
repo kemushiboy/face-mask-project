@@ -33,6 +33,7 @@
 
 #define PORT     8080
 #define MAXLINE 1024
+#define LANDMARKSIZELIMIT 16
 int sockfd;
 struct sockaddr_in     servaddr;
 
@@ -156,7 +157,8 @@ class MyIrisPassThroughCalculator : public CalculatorBase {
 
         //std::cout << cc->Inputs().Get(id).Name() << std::endl;
 
-        if (cc->Inputs().Get(id).Name() == "face_landmarks"){
+        if(false){
+        //if (cc->Inputs().Get(id).Name() == "face_landmarks"){
           // the type is a NormalizedLandmarkList, but you need the kLandmarksTag
           // in order for it not to crash for some reason ...
           const NormalizedLandmarkList& landmarks = cc->Inputs().Tag(kLandmarksTag).Get<NormalizedLandmarkList>();
@@ -175,7 +177,8 @@ class MyIrisPassThroughCalculator : public CalculatorBase {
           }
         }
 
-        if (cc->Inputs().Get(id).Name() == "face_detections"){
+        if(false){
+        //if (cc->Inputs().Get(id).Name() == "face_detections"){
           // Palm is detected once, not continuously — when it first shows up in the image
           const auto& detections = cc->Inputs().Tag(kDetectionsTag).Get<std::vector<Detection>>();
           for (int i = 0; i < detections.size(); ++i) {
@@ -185,8 +188,8 @@ class MyIrisPassThroughCalculator : public CalculatorBase {
 
           }
         }
-
-        if (cc->Inputs().Get(id).Name() == "face_rect"){
+        if(false){
+        //if (cc->Inputs().Get(id).Name() == "face_rect"){
           // The Hand Rect is an x,y center, width, height, and angle (in radians)
           const NormalizedRect& rect = cc->Inputs().Tag(kNormRectTag).Get<NormalizedRect>();
 
@@ -206,7 +209,8 @@ class MyIrisPassThroughCalculator : public CalculatorBase {
 
         }
 
-        if (cc->Inputs().Get(id).Name() == "right_eye_rect_from_landmarks"){
+        if(false){
+        //if (cc->Inputs().Get(id).Name() == "right_eye_rect_from_landmarks"){
           const NormalizedRect& right_eye_rect = cc->Inputs().Tag("RIGHT_EYE_RECT").Get<NormalizedRect>();
           wrapper->mutable_right_eye_rect()->set_x_center(right_eye_rect.x_center());
           wrapper->mutable_right_eye_rect()->set_y_center(right_eye_rect.y_center());
@@ -223,7 +227,8 @@ class MyIrisPassThroughCalculator : public CalculatorBase {
           //         sizeof(servaddr));
         }
 
-        if (cc->Inputs().Get(id).Name() == "left_eye_rect_from_landmarks"){
+        if(false){
+        //if (cc->Inputs().Get(id).Name() == "left_eye_rect_from_landmarks"){
           const NormalizedRect& left_eye_rect = cc->Inputs().Tag("LEFT_EYE_RECT").Get<NormalizedRect>();
           wrapper->mutable_left_eye_rect()->set_x_center(left_eye_rect.x_center());
           wrapper->mutable_left_eye_rect()->set_y_center(left_eye_rect.y_center());
@@ -240,7 +245,8 @@ class MyIrisPassThroughCalculator : public CalculatorBase {
           //         sizeof(servaddr));
         }
 
-        if (cc->Inputs().Get(id).Name() == "right_iris_landmarks"){
+        if(false){
+        //if (cc->Inputs().Get(id).Name() == "right_iris_landmarks"){
           // the type is a NormalizedLandmarkList, but you need the kLandmarksTag
           // in order for it not to crash for some reason ...
           const NormalizedLandmarkList& landmarks = cc->Inputs().Tag("IRIS_LANDMARKS_RIGHT").Get<NormalizedLandmarkList>();
@@ -258,7 +264,8 @@ class MyIrisPassThroughCalculator : public CalculatorBase {
           }
         }
 
-        if (cc->Inputs().Get(id).Name() == "left_iris_landmarks"){
+        if(false){
+        //if (cc->Inputs().Get(id).Name() == "left_iris_landmarks"){
           // the type is a NormalizedLandmarkList, but you need the kLandmarksTag
           // in order for it not to crash for some reason ...
           const NormalizedLandmarkList& landmarks = cc->Inputs().Tag("IRIS_LANDMARKS_LEFT").Get<NormalizedLandmarkList>();
@@ -282,6 +289,9 @@ class MyIrisPassThroughCalculator : public CalculatorBase {
           const NormalizedLandmarkList& landmarks = cc->Inputs().Tag("EYE_LANDMARKS_RIGHT").Get<NormalizedLandmarkList>();
 
           for (int i = 0; i < landmarks.landmark_size(); ++i) {
+             if(i >= LANDMARKSIZELIMIT ){
+                break;
+              }
               const NormalizedLandmark& landmark = landmarks.landmark(i);
                //std::cout << "eye_landmarks_right " << i <<":\n" << landmark.DebugString() << '\n';
 
@@ -290,7 +300,6 @@ class MyIrisPassThroughCalculator : public CalculatorBase {
               
               wrapper->mutable_eye_landmarks_right()->mutable_landmark(size)->set_x(landmark.x());
               wrapper->mutable_eye_landmarks_right()->mutable_landmark(size)->set_y(landmark.y());
-              
           }
         }
 
@@ -300,6 +309,9 @@ class MyIrisPassThroughCalculator : public CalculatorBase {
           const NormalizedLandmarkList& landmarks = cc->Inputs().Tag("EYE_LANDMARKS_LEFT").Get<NormalizedLandmarkList>();
 
           for (int i = 0; i < landmarks.landmark_size(); ++i) {
+             if(i >= LANDMARKSIZELIMIT ){
+                break;
+              }
               const NormalizedLandmark& landmark = landmarks.landmark(i);
                //std::cout << "eye_landmarks_left " << i <<":\n" << landmark.DebugString() << '\n';
 
