@@ -33,7 +33,7 @@
 
 #define PORT     8080
 #define MAXLINE 1024
-#define LANDMARKSIZELIMIT 16
+#define LANDMARKSIZELIMIT 32
 int sockfd;
 struct sockaddr_in     servaddr;
 
@@ -200,7 +200,7 @@ class MyIrisPassThroughCalculator : public CalculatorBase {
           wrapper->mutable_rect()->set_rotation(rect.rotation());
 
 
-          // std::cout << "Hand Rect: " << rect.DebugString() << '\n';
+          // std::cout << "Face Rect: " << rect.DebugString() << '\n';
           // std::string msg_buffer;
           // rect.SerializeToString(&msg_buffer);
           // sendto(sockfd, msg_buffer.c_str(), msg_buffer.length(),
@@ -209,8 +209,8 @@ class MyIrisPassThroughCalculator : public CalculatorBase {
 
         }
 
-        if(false){
-        //if (cc->Inputs().Get(id).Name() == "right_eye_rect_from_landmarks"){
+        //if(false){
+        if (cc->Inputs().Get(id).Name() == "right_eye_rect_from_landmarks"){
           const NormalizedRect& right_eye_rect = cc->Inputs().Tag("RIGHT_EYE_RECT").Get<NormalizedRect>();
           wrapper->mutable_right_eye_rect()->set_x_center(right_eye_rect.x_center());
           wrapper->mutable_right_eye_rect()->set_y_center(right_eye_rect.y_center());
@@ -227,8 +227,8 @@ class MyIrisPassThroughCalculator : public CalculatorBase {
           //         sizeof(servaddr));
         }
 
-        if(false){
-        //if (cc->Inputs().Get(id).Name() == "left_eye_rect_from_landmarks"){
+        //if(false){
+        if (cc->Inputs().Get(id).Name() == "left_eye_rect_from_landmarks"){
           const NormalizedRect& left_eye_rect = cc->Inputs().Tag("LEFT_EYE_RECT").Get<NormalizedRect>();
           wrapper->mutable_left_eye_rect()->set_x_center(left_eye_rect.x_center());
           wrapper->mutable_left_eye_rect()->set_y_center(left_eye_rect.y_center());
