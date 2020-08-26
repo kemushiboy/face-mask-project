@@ -3,17 +3,26 @@
 
 ### 前準備
 - touchDesigner  2020 25380 をインストール
-
-- homebrewをインストール
+`https://download.derivative.ca/TouchDesigner.2020.25380.dmg`
 
 - xcode, command line toolsをインストール
+`https://developer.apple.com/download/more/`
+
+- homebrewをインストール
+`/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"`
+
+- OBS (Open Broadcaster Software) Studio をインストール
+`brew cask install obs`
+- OBS (macOS) Virtual Camera をインストール
+`brew cask install obs-virtualcam`
 
 - gitをインストール
+`brew install git`
 
 - Cloneしてくる
-git clone https://github.com/kemushiboy/face-mask-project.git
+`git clone https://github.com/kemushiboy/face-mask-project.git`
 
-ディレクトリ名をsicfに変更
+Cloneしたディレクトリ名をsicfに変更
 
 ### IRIS Trackingnの設定
 
