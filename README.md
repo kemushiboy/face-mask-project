@@ -11,11 +11,6 @@
 - homebrewをインストール
 `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"`
 
-- OBS (Open Broadcaster Software) Studio をインストール
-`brew cask install obs`
-- OBS (macOS) Virtual Camera をインストール
-`brew cask install obs-virtualcam`
-
 - gitをインストール
 `brew install git`
 
