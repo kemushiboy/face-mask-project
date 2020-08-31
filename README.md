@@ -8,6 +8,9 @@
 - xcode, command line toolsをインストール
 `https://developer.apple.com/download/more/`
 
+- syphon virtual webcamをインストール
+`https://troikatronix.com/plugin/syphon-virtual-webcam/`
+
 - homebrewをインストール
 `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"`
 
